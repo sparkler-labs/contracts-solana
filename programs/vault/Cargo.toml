@@ -1,0 +1,20 @@
+[package]
+name = "vault"
+version = "1.0.0"
+description = "Vault: password-protected asset custody on Solana (keccak256(sender||password) gate)"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "vault"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+anchor-spl = "0.30.1"

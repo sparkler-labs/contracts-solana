@@ -1,0 +1,26 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+postoffice = "21Ky8yTtq1sKkts4NPvrfsFnMFrqnJUbXUbC1djS9AZ9"
+vault = "CwB99yaBUPmAVx4ae57Dzp1eMtjuJNsss3M6poT9iowe"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "pnpm exec ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[test]
+startup_wait = 10000
+
+[test.validator]
+[[test.genesis]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+# Metaplex Token Metadata（本地验证 NFT 附件场景；程序 so 文件由
+# pnpm solana:fetch-metadata 下载到 tests/fixtures/，见 README）
