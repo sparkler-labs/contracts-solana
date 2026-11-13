@@ -19,8 +19,10 @@ test = "pnpm exec ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 [test]
 startup_wait = 10000
 
-[test.validator]
-[[test.genesis]]
-address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
-# Metaplex Token Metadata（本地验证 NFT 附件场景；程序 so 文件由
-# pnpm solana:fetch-metadata 下载到 tests/fixtures/，见 README）
+# Metaplex Token Metadata（本地验证 NFT 附件场景）。
+# 需要时取消注释并先 `solana program dump metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s tests/fixtures/mpl_token_metadata.so`
+# （Anchor 0.32 的 [[test.genesis]] 必须同时提供 address/program/path 三个字段，缺 program/path 会导致 anchor build 解析失败）：
+# [[test.genesis]]
+# address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+# program = "tests/fixtures/mpl_token_metadata.so"
+# path = "tests/fixtures/mpl_token_metadata.so"
